@@ -1,7 +1,14 @@
 #include <iostream>
+#include <ifaddrs.h>
+
+#include "network/NetworkInterface.hpp"
 
 int main(void)
 {
-  std::cout << "Hello, World!" << std::endl;
+  struct ifaddrs *addrs = nullptr;
+
+  network::NetworkInterface interface = network::NetworkInterface(addrs);
+
+  std::cout << "INTERFACES:" << interface << std::endl;
   return 0;
 }
